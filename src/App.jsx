@@ -6,15 +6,17 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import MyNav from "./components/MyNav";
 import MyFooter from "./components/MyFooter";
 import Welcome from "./components/Welcome";
-import AllTheBooks from "./components/AllTheBooks";
-
+// fantasy allora sarà la prop data alla nostra booklist
+import fantasy from "./data/fantasy.json";
+import BookList from "./components/BookList";
+// importo la Booklist
 function App() {
   return (
     <>
       <MyNav />
       <main className="flex-grow-1">
         <Welcome />
-        <AllTheBooks />
+        <BookList books={fantasy} />
       </main>
 
       <MyFooter />

@@ -11,6 +11,7 @@ import { Row, Col, Container } from "react-bootstrap";
 // creo la funzione BookList che come parametro riceverà la prop
 
 const BookList = function ({ books }) {
+  console.log(books);
   // faccio il return che mi tornerà intanto un container
   // e una row e dentro la row dovrò ciclare
   // con map book e dovrò avere per ogni book una colonna e un SingleBook a cui darò

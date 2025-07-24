@@ -9,6 +9,7 @@ import Welcome from "./components/Welcome";
 // fantasy allora sarà la prop data alla nostra booklist
 import fantasy from "./data/fantasy.json";
 import BookList from "./components/BookList";
+import SingleBook from "./components/SingleBook";
 // importo la Booklist
 function App() {
   return (

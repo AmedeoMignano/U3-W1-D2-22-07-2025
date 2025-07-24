@@ -4,7 +4,7 @@
 // importo quindi card prima
 import { Component } from "react";
 import { Card, Col, Button } from "react-bootstrap";
-import { Border } from "react-bootstrap-icons";
+import CommentArea from "./CommentArea";
 
 // poi ricopio la card di AllTheBooks per farlo simile, ma dentro la funzione
 
@@ -70,28 +70,33 @@ class SingleBook extends Component {
     // applichiamo allo style della card un border con operatore ternario
     // se selected è true darà un colore al bordo altrimenti un altro
     return (
-      <Card
-        key={book.asin}
-        className="h-100"
-        style={{ border: selected ? "2px solid #0D6EFD" : "1px solid green" }}
-        // metto all'onClick il toggleSelect
-        onClick={this.toggleSelect}
-      >
-        <Card.Img
-          variant="top"
-          src={book.img}
-          alt={book.title}
-          className="h-75"
-        />
-        <Card.Body className=" d-flex flex-column">
-          <Card.Title className=" flex-grow-1">{book.title}</Card.Title>
+      <>
+        <Card
+          key={book.asin}
+          className="h-100"
+          style={{ border: selected ? "2px solid #0D6EFD" : "1px solid green" }}
+          // metto all'onClick il toggleSelect
+          onClick={this.toggleSelect}
+        >
+          <Card.Img
+            variant="top"
+            src={book.img}
+            alt={book.title}
+            className="h-75"
+          />
+          <Card.Body className=" d-flex flex-column">
+            <Card.Title className=" flex-grow-1">{book.title}</Card.Title>
 
-          <div className=" d-flex justify-content-between align-items-center">
-            <Button variant="primary">Buy</Button>
-            <Card.Text>€ {book.price}</Card.Text>
-          </div>
-        </Card.Body>
-      </Card>
+            <div className=" d-flex justify-content-between align-items-center">
+              <Button variant="primary">Buy</Button>
+              <Card.Text>€ {book.price}</Card.Text>
+            </div>
+          </Card.Body>
+        </Card>
+        {/* uso lo shortcircuit per far spuntare il componente CommentArea
+        quando lo stato selected della card è true */}
+        {this.state.selected && <CommentArea asin={book.asin} />}
+      </>
     );
   }
 }
